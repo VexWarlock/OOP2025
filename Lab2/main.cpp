@@ -11,12 +11,12 @@ int main() {
     list.Add(1);
     list.Add(7);
 
-    std::cout << "Unsorted list: ";
+    printf("Unsorted list: ");
     list.Print();
 
     list.Sort();
 
-    std::cout << "Sorted list: ";
+    printf("Sorted list: ");
     list.Print();
 
     return 0;
