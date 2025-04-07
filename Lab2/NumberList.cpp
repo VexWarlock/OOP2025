@@ -23,8 +23,8 @@ void NumberList::Sort() {
 
 void NumberList::Print() {
     for (int i = 0; i < count; i++) {
-        std::cout << numbers[i] << " ";
+        printf("%d ",numbers[i]);
     }
-    std::cout << std::endl;
+    printf("\n");
 }
  
