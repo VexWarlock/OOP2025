@@ -7,10 +7,10 @@ private:
     int count;
 
 public:
-    void Init();      // Initializes count to 0
-    bool Add(int x);  // Adds x to the list if there is space
-    void Sort();      // Sorts the list in ascending order
-    void Print();     // Prints the list
+    void Init();
+    bool Add(int x);
+    void Sort();
+    void Print();
 };
 
 #endif
