@@ -1,5 +1,6 @@
 #pragma once
 #define NUMBERLIST_H
+
 class NumberList
 {
     int numbers[10];
