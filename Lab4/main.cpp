@@ -1,5 +1,5 @@
 #include "Sort.h"
-#include <iostream>
+#include <cstdio>  // pentru printf
 
 int main()
 {
@@ -34,9 +34,6 @@ int main()
     s5.InsertSort(true);
     s5.Print();
 
-   printf(s5.GetElementFromIndex(2));
-   printf(
-    cout << "Total elements in s5: " << s5.GetElementsCount() << endl;
-
-    return 0;
+    printf("\nElement at index 2 of s5: %d\n", s5.GetElementFromIndex(2));
+    printf("Total elements in s5: %d\n", s5.GetElementsCount());
 }
