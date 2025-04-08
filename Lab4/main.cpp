@@ -1,5 +1,5 @@
 #include "Sort.h"
-#include <cstdio>  // pentru printf
+#include <cstdio>
 
 int main()
 {
