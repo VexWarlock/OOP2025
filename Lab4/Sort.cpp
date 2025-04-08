@@ -1,5 +1,5 @@
 #include "Sort.h"
-#include <iostream>
+#include <cstdio>
 #include <cstdlib>
 #include <ctime>
 #include <cstdarg>
@@ -127,8 +127,8 @@ void Sort::QuickSort(bool asc)
 void Sort::Print()
 {
     for (int i = 0; i < size; ++i)
-        cout << arr[i] << " ";
-    cout << endl;
+        printf("%d ", arr[i]);
+    printf("\n");
 }
 
 int Sort::GetElementsCount()
@@ -142,4 +142,3 @@ int Sort::GetElementFromIndex(int index)
         return arr[index];
     return -1;
 }
--
