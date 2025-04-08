@@ -10,10 +10,10 @@ class Number {
     int ToDecimal() const;
 
 public:
-    Number(const char* value, int base); // Constructor din șir și bază
-    Number(int val);                     // Constructor din întreg (baza 10)
-    Number(const Number& other);        // Copy constructor
-    Number(Number&& other);             // Move constructor
+    Number(const char* value, int base); // Constructor din sir
+    Number(int val);                     // Constructor din intreg (in baza 10)
+    Number(const Number& other);         // Copy constructor
+    Number(Number&& other);              // Move constructor
     ~Number();
 
     Number& operator=(const Number& other);  // Copy assignment
