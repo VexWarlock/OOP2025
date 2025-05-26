@@ -3,7 +3,8 @@
 #include <cstring>
 #include <utility>
 
-template<typename K, typename V>
+
+template<typename K,typename V>
 class Map {
 private:
     struct Pair {
@@ -48,6 +49,8 @@ public:
         return data[size - 1].value;
     }
 
+
+//metoda set
     void Set(const K& key, const V& value) {
         for (size_t i = 0; i < size; ++i) {
             if (data[i].key == key) {
@@ -60,6 +63,9 @@ public:
         data[size++] = { key, value };
     }
 
+
+
+//metoda get
     bool Get(const K& key, V& value) const {
         for (size_t i = 0; i < size; ++i) {
             if (data[i].key == key) {
