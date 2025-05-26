@@ -7,23 +7,30 @@
 #include <vector>
 #include <algorithm>
 
-// Helper function to convert a string to lowercase
-std::string toLower(const std::string& str) {
-    std::string lowerStr;
+using namespace std;
+
+
+
+//functie care transforma un string in lowercase
+string toLower(const string& str) {
+    string lowerStr;
     for (char ch : str)
-        lowerStr += std::tolower(static_cast<unsigned char>(ch));
+        lowerStr += tolower(ch);
     return lowerStr;
 }
 
-// Helper function to check if a character is a separator
+
+//functie care verifica daca un caracter e separator
 bool isSeparator(char ch) {
     return ch == ' ' || ch == ',' || ch == '.' || ch == '?' || ch == '!' || ch == '\n';
 }
 
-// Tokenize string using only std::string methods
-std::vector<std::string> splitIntoWords(const std::string& text) {
-    std::vector<std::string> words;
-    std::string word;
+
+
+//impartire pe cuvinte
+vector<string> splitIntoWords(const string& text) {
+    vector<string> words;
+    string word;
     for (char ch : text) {
         if (isSeparator(ch)) {
             if (!word.empty()) {
@@ -41,41 +48,41 @@ std::vector<std::string> splitIntoWords(const std::string& text) {
     return words;
 }
 
-// Comparator for priority_queue
+
+//comparator
 struct WordCompare {
-    bool operator()(const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
-        if (a.second == b.second)
-            return a.first > b.first; // lexicographically ascending
-        return a.second < b.second;   // max-heap on frequency
+    bool operator()(const pair<string, int>& a, const pair<string, int>& b) {
+        if (a.second==b.second)
+            return a.first > b.first; //le luam lexicografic
+        return a.second < b.second;   //altfel,le luam dupa frecventa
     }
 };
 
 int main() {
-    std::ifstream file("input.txt");
-    if (!file) {
-        std::cerr << "Error: Could not open file.\n";
-        return 1;
+    ifstream file("input.txt");
+    
+    string line,text;
+    while (getline(file,line)) {
+        text+=line+" ";
     }
 
-    std::string line, text;
-    while (std::getline(file, line)) {
-        text += line + " ";
-    }
+//facem vector de cuvinte cu cuvintele din prop
+    vector<string> words=splitIntoWords(text);
 
-    std::vector<std::string> words = splitIntoWords(text);
-
-    std::map<std::string, int> wordCount;
-    for (const std::string& word : words) {
+//parcurgem cuvintele si le crestem numarul de aparitii
+    map<string,int> wordCount;
+    for (const string& word : words) 
         wordCount[word]++;
-    }
 
-    std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, WordCompare> pq;
+//facem coada cu prioritati
+    priority_queue<pair<string, int>, vector<pair<string,int>>,WordCompare> pq;
     for (const auto& pair : wordCount) {
         pq.push(pair);
     }
 
+//afisam continutul cozii in formatul "cuv => nraparitii"
     while (!pq.empty()) {
-        std::cout << pq.top().first << " => " << pq.top().second << "\n";
+        cout << pq.top().first << " => " << pq.top().second << "\n";
         pq.pop();
     }
 
